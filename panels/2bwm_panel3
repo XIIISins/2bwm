@@ -1,0 +1,35 @@
+function statusbar {
+
+	function desk() {
+	DESKTOP=$(xprop -root _NET_CURRENT_DESKTOP | awk '{print $3}')
+	case $DESKTOP in
+		0)	echo "MAIN"
+			;;
+		1)	echo "WWW"
+			;;
+		2)	echo "DEVEL"
+			;;
+		3)	echo "NULL"
+			;;
+		*)	echo "error"
+	esac
+	}
+
+	function clock() {
+	time=$(date "+%A %b %d %Y %R")
+	echo $time
+	}
+
+	
+	function music() {
+	mpc=$(mpc current)
+	echo $mpc
+	}
+	
+	echo " ^fg(#6F77A4)"$(desk)" ^fg(#2D2D2D)|^fg(#78924A) $(music) ^fg(#2D2D2D) | ^fg(#98414F)$(clock)"
+}
+ while true 
+ do
+	 echo "$(statusbar)"
+	sleep 0.5	
+ done | dzen2 -h 18 -w 1920 -ta c -p &
