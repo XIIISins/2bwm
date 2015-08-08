@@ -26,10 +26,20 @@ function statusbar {
 	echo $mpc
 	}
 	
-	echo " ^fg(#6F77A4)"$(desk)" ^fg(#2D2D2D)|^fg(#78924A) $(music) ^fg(#2D2D2D) | ^fg(#98414F)$(clock)"
+	function load() {
+		load=`uptime | sed 's/.*average: //'`
+		echo $load
+	}
+
+	function activewin() {
+		curwin=`xdotool getwindowfocus getwindowname`
+		echo $curwin
+	}
+
+	echo "^p(_LEFT) ^fg(#6F77A4)"$(desk)" ^fg(#2D2D2D)|^fg(#78924A) $(music) ^fg(#2D2D2D)|^fg(#FFFFFF) $(activewin) ^p(_RIGHT) ^fg(#2D2D2D) |^p(_RIGHT)^p(-310) ^fg(#98414F)$(load) ^fg(#2D2D2D) | ^fg(#98414F) $(clock)"
 }
  while true 
  do
 	 echo "$(statusbar)"
 	sleep 0.5	
- done | dzen2 -h 18 -w 1920 -ta c -p &
+ done | dzen2 -h 18 -w 1440 -ta c -p &
