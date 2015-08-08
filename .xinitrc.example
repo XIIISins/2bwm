@@ -1,0 +1,23 @@
+#!/bin/sh
+
+# Set a nice background.
+xsetroot -solid grey20
+
+# Load resources.
+xrdb -load ~/.Xresources
+
+# Fix Mouse cursor
+xsetroot -cursor_name left_ptr &
+
+# URxvt Daemon
+urxvtd &
+
+# Start window manager in the background. If it dies, X still lives.
+2bwm &
+
+# Panel
+#2bwm_panel | lemonbar -p -F "#FFB5B2AF" -B "#FF282522" -g "1920x20+0+0" -f "Tewi-9" &
+sh $HOME/.config/2bwm/2bwm_panel3 &
+
+# Start a terminal in the foreground. If this dies, X dies.
+exec urxvt
