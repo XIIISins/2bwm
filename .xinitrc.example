@@ -1,7 +1,8 @@
 #!/bin/sh
 
 # Set a nice background.
-xsetroot -solid grey20
+# xsetroot -solid grey20
+nitrogen --restore
 
 # Load resources.
 xrdb -load ~/.Xresources

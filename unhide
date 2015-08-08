@@ -1,0 +1,8 @@
+#!/bin/bash
+#
+# unhide "iconified" windows
+# deps: 9menu, sed, hidden (made with 2bwm)
+#
+
+hidden -c | sed -e 's/.*\://' -e 's/xdotool/\/usr\/bin\/xdotool/' | xargs 9menu -popup 2>/dev/null
+
