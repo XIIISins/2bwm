@@ -30,7 +30,7 @@ function statusbar {
 			echo ""
 		else
 			batt_status=`acpi | awk '{print $3}' | sed 's/,/ /g'`
-			batt_perc=`acpi | awk '{print $3}' | sed 's/,/ /g'`
+			batt_perc=`acpi | awk '{print $4}' | sed 's/,/ /g'`
 			if [ $batt_status == "Charging" ]; then
 				batt_sstat="+"
 			else
@@ -64,7 +64,7 @@ function statusbar {
 		echo $curwin
 	}
 
-	echo "^p(_LEFT) ^fg(#6F77A4)"$(desk)" ^fg(#2D2D2D)|^fg(#78924A) $(music) ^fg(#2D2D2D)|^fg(#FFFFFF) ^p(_CENTER)$(activewin) ^p(_RIGHT)^p(-310) ^fg(#98414F)$(battery)^fg(#2D2D2D) | ^fg(#98414F)$(load) ^fg(#2D2D2D) | ^fg(#98414F) $(clock)"
+	echo "^p(_LEFT) ^fg(#6F77A4)"$(desk)" ^fg(#2D2D2D)|^fg(#78924A) $(music) ^fg(#2D2D2D)|^fg(#FFFFFF) ^p(_CENTER)$(activewin) ^p(_RIGHT)^p(-340) ^fg(#98414F)$(battery)^fg(#2D2D2D) | ^fg(#98414F)$(load) ^fg(#2D2D2D) | ^fg(#98414F) $(clock)"
 }
  while true 
  do
