@@ -11,9 +11,7 @@ function statusbar {
 			;;
 		3)	echo "NULL"
 			;;
-		4)	echo "NULL"
-			;;
-		5)	echo "GAME"
+		4)	echo "GAME"
 			;;
 		*)	echo "error"
 	esac
@@ -64,7 +62,10 @@ function statusbar {
 		echo $curwin
 	}
 
-	echo "^p(_LEFT) ^fg(#6F77A4)"$(desk)" ^fg(#2D2D2D)|^fg(#78924A) $(music) ^fg(#2D2D2D)|^fg(#FFFFFF) ^p(_CENTER)$(activewin) ^p(_RIGHT)^p(-340) ^fg(#98414F)$(battery)^fg(#2D2D2D) | ^fg(#98414F)$(load) ^fg(#2D2D2D) | ^fg(#98414F) $(clock)"
+#Desktop
+#	echo "^p(_LEFT) ^fg(#6F77A4)"$(desk)" ^fg(#2D2D2D)|^fg(#78924A) $(music) ^fg(#2D2D2D)|^fg(#FFFFFF) ^p(_CENTER)$(activewin) ^p(_RIGHT)^p(-340) ^fg(#98414F)$(battery)^fg(#2D2D2D) | ^fg(#98414F)$(load) ^fg(#2D2D2D) | ^fg(#98414F) $(clock)"
+#Laptop
+	echo "^p(_LEFT) ^fg(#6F77A4)"$(desk)" ^fg(#2D2D2D)|^fg(#78924A) $(music) ^fg(#2D2D2D)|^fg(#FFFFFF) $(activewin) ^p(_RIGHT)^p(-340) ^fg(#98414F)$(battery)^fg(#2D2D2D) | ^fg(#98414F)$(load) ^fg(#2D2D2D) | ^fg(#98414F) $(clock)"
 }
  while true 
  do
