@@ -80,4 +80,8 @@ function statusbar {
  do
 	 echo "$(statusbar)"
 	sleep 0.5	
+<<<<<<< HEAD
  done | dzen2 -h 18 -w $Xaxis -ta c -p &
+=======
+ done | dzen2 -h 19 -w 1920 -ta c -p &
+>>>>>>> 72774c157135ac1f4416744ca0409469902f88c5

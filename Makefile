@@ -33,8 +33,7 @@ install: $(TARGETS)
 	test -d $(DESTDIR)$(PREFIX)/bin || mkdir -p $(DESTDIR)$(PREFIX)/bin
 	install -pm 755 2bwm $(DESTDIR)$(PREFIX)/bin
 	install -pm 755 hidden $(DESTDIR)$(PREFIX)/bin
-	install -pm 755 unhide $(DESTDIR)$(PREFIX)/bin
-	ln -s $(DESTDIR)$(PREFIX)/bin/unhide /usr/bin/unhide
+	install -pm 755 unhide /usr/bin/unhide
 	test -d $(DESTDIR)$(MANPREFIX)/man1 || mkdir -p $(DESTDIR)$(MANPREFIX)/man1
 	install -pm 644 2bwm.man $(DESTDIR)$(MANPREFIX)/man1/2bwm.1
 	install -pm 644 hidden.man $(DESTDIR)$(MANPREFIX)/man1/hidden.1
@@ -45,6 +44,7 @@ deinstall:
 	$(RM) $(DESTDIR)$(MANPREFIX)/man1/2bwm.1
 	$(RM) $(DESTDIR)$(PREFIX)/bin/hidden
 	$(RM) $(DESTDIR)$(MANPREFIX)/man1/hidden.1
+	$(RM) /usr/bin/unhide
 
 $(DIST).tar.bz2:
 	mkdir $(DIST)
