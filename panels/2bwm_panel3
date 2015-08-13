@@ -40,7 +40,9 @@ function statusbar {
 			batt_perc=`acpi | awk '{print $4}' | sed 's/,/ /g'`
 			if [ $batt_status == "Charging" ]; then
 				batt_sstat="+"
-			else
+            elif [ $batt_status == "Full" ]; then
+                batt_sstat="~"
+            else
 				batt_sstat="-"
 			fi
 			echo $batt_sstat $batt_perc
