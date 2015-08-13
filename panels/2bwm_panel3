@@ -1,3 +1,12 @@
+#!/bin/bash
+#
+# Custom status bar for dzen2
+# Stolen somewhere from the internet
+# Modified by XIIISins
+
+#Xaxis=$(xrandr --current | grep '* ' | uniq | awk '{print $1}' |  cut -d 'x' -f1)
+Xaxis=$(xrandr --current | head -n1 | awk -F"x" '{print $2}' | sed 's/.*current //')
+
 function statusbar {
 
 	function desk() {
@@ -71,4 +80,4 @@ function statusbar {
  do
 	 echo "$(statusbar)"
 	sleep 0.5	
- done | dzen2 -h 18 -w 1920 -ta c -p &
+ done | dzen2 -h 18 -w $Xaxis -ta c -p &

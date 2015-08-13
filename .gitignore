@@ -2,3 +2,4 @@
 hidden
 hidden.o
 2bwm.o
+config.h
