@@ -19,7 +19,8 @@ static const uint8_t offsets[] = {0,19,0,20};
  *2)fixedcol         3)unkilcol
  *4)fixedunkilcol    5)outerbordercol
  *6)emptycol         */
-static const char *colors[] = {"#F2F1F0","#222222","#E84F4F","#F07746","#B7416E","#222222","#282828"};
+/*static const char *colors[] = {"#F2F1F0","#222222","#E84F4F","#F07746","#B7416E","#222222","#282828"};*/
+static const char *colors[] = {"#E84F4F","#222222","#E84F4F","#F07746","#B7416E","#222222","#282828"};
 /*
  * If you are using a composition manager enable the COMPTON flag in the Makefile
  * (By changing -DNCOMPTON to -DCOMPTON)
@@ -41,10 +42,11 @@ static const uint8_t borders[] = {3,5,5,4};
 #define LOOK_INTO "WM_NAME"
 static const char *ignore_names[] = {"bar", "xclock"};
 ///--Menus and Programs---///
-static const char *menucmd[]   = { "/usr/bin/gmrun", NULL };
+static const char *menucmd[]   = { "/home/xiii/bin/dmenu_xiii.sh", NULL };
 static const char *gmrun[]     = { "/usr/bin/gmrun",NULL};
 static const char *unhide[]     = { "/usr/bin/unhide",NULL};
 static const char *terminal[]  = { "urxvt", NULL };
+static const char *lockscr[]  = { "/home/xiii/.scripts/lock.sh", NULL };
 static const char *click1[]    = { "xdotool","click", "1", NULL };
 static const char *click2[]    = { "xdotool","click", "2", NULL };
 static const char *click3[]    = { "xdotool","click", "3", NULL };
@@ -178,6 +180,7 @@ static key keys[] = {
     {  MOD ,              XK_w,          start,             {.com = menucmd}},
     {  MOD |SHIFT,        XK_w,          start,             {.com = gmrun}},
     {  MOD ,              XK_e,          start,             {.com = unhide}},
+    {  MOD ,              XK_l,          start,             {.com = lockscr}},
     // Exit or restart 2bwm
     {  MOD |CONTROL,      XK_q,          twobwm_exit,       {.i=0}},
     {  MOD |CONTROL,      XK_r,          twobwm_restart,    {.i=0}},
