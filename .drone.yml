@@ -1,4 +1,3 @@
 image: xiiisins/xiii-drone
 script:
-  - yum install -y git
   - echo hello world
