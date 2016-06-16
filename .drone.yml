@@ -1,3 +1,6 @@
 image: xiiisins/git-archlinux
 script:
+  - pacman -Syy
+  - pacman -Syu --noconfirm
+  - pacman -S base-devel --noconfirm
   - make all
